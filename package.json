@@ -1,0 +1,29 @@
+{
+  "name": "hockeyofficial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dst/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rdabell/hockeyofficial.git"
+  },
+  "author": "rdabell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rdabell/hockeyofficial/issues"
+  },
+  "homepage": "https://github.com/rdabell/hockeyofficial#readme",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "jimp": "^0.6.0",
+    "lodash": "^4.17.11",
+    "moment": "^2.22.2"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.118",
+    "@types/node": "^10.12.12"
+  }
+}
