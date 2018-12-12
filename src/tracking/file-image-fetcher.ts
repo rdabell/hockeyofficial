@@ -12,22 +12,26 @@ export class FileImageFetcher implements ImageFetcher {
     public initialize() {
         let i: number = 0;
         readdir(this.dir, (err, files: string[]) => {
-            if (files) {
-                let i: number = 0;
-                files.forEach((file: string) => {
-                    i++;
-                    setTimeout(()=>{
-                            console.log(`Sending Image ${file}`);
-                            this.readAndSendImage(`${this.dir}/${file}`);
-                        }, i*1000);
-                });
+            
+            if (files && files.length > 0) {
+                this.sendAndWait(files);
             }
         });
     }
 
+    private sendAndWait(files: string[]) {
+        while(files.length>0) {
+            let first = files.shift();
+            setTimeout(() => {
+                this.sendAndWait(files);
+            }, 16);
+            this.readAndSendImage(first as string);         
+        }
+    }
+
     private readAndSendImage(path: string) : void {
 
-        readFile(path, (err, data: Buffer) => {
+        readFile(`${this.dir}/${path}`, (err, data: Buffer) => {
             if (err) {
                 console.log(err.message);
             } else if ( this.imageCallback) {

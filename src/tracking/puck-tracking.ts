@@ -79,6 +79,10 @@ export class PuckTracking {
 
                 this.location = coord;
             }
+        }, (reason) => {
+            console.log(reason);
+        }).catch(err => {
+            console.log(err);
         });
     }
 
